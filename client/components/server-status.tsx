@@ -11,8 +11,12 @@ type ServerStatus = {
 const ServerStatus = () => {
   const [status, setStatus] = useState<ServerStatus | null>(null);
   const fetchStatus = async () => {
-    const response = await axios.get('/api/status');
-    setStatus(response.data);
+    try {
+      const response = await axios.get('/api/status');
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
+    }
+    // setStatus(response.data);
   };
 
   useEffect(() => {
