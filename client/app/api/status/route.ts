@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const response = await fetch('http://localhost:4000/status');
+    const response = await fetch(
+      new URL('/status', process.env.NEXT_API_ROUTE)
+    );
     if (!response.ok) {
       throw new Error('Error fetching data');
     }
