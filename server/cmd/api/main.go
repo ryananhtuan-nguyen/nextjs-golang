@@ -28,7 +28,7 @@ func main() {
 	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|production)")
 	flag.Parse()
 
-	fmt.Println("Running")
+	fmt.Println("Running on port", cfg.port)
 
 	http.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
 		currentStatus := AppStatus{
