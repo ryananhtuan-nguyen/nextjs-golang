@@ -1,3 +1,4 @@
 node_modules
 .next
 go.mod
+.env
